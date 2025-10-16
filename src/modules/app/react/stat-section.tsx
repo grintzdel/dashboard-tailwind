@@ -4,7 +4,7 @@ import {CiFolderOn, CiUser} from "react-icons/ci";
 import {VscPercentage, VscPinned} from "react-icons/vsc";
 import {StatsTilesContainer, StatTile} from "@/modules/app/react/components/stat-tile";
 
-export default function StatsSection() {
+export default function StatSection() {
     return (
         <section>
             <StatsTilesContainer>
