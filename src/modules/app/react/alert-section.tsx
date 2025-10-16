@@ -11,12 +11,14 @@ export default function AlertSection(): JSX.Element {
         .replace("[period]", "2 weeks");
 
     return (
-        <Alert
-            icon={MdOutlineNotificationAdd}
-            title="Dear Manager"
-            text={alertText}
-            buttonHref="#"
-            buttonText="View Details"
-        />
+        <section>
+            <Alert
+                icon={MdOutlineNotificationAdd}
+                title="Dear Manager"
+                text={alertText}
+                buttonHref="#"
+                buttonText="View Details"
+            />
+        </section>
     );
 }
