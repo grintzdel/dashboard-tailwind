@@ -40,7 +40,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({placeholder}: SearchSectio
 }
 
 type ActionButtonProps = {
-    icon: React.ComponentType<{ className?: string }>;
+    icon: IconType;
     onClick?: () => void;
 }
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, {JSX} from "react";
+import {IconType} from "react-icons";
 
 export type ButtonProps = {
     buttonHref: string
@@ -7,7 +8,7 @@ export type ButtonProps = {
 }
 
 export type ButtonActionProps = {
-    icon: React.ComponentType<{ className?: string }>;
+    icon: IconType;
     onClick?: () => void;
     ariaLabel?: string;
 }
