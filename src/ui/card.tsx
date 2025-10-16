@@ -1,7 +1,14 @@
 import React, {JSX} from "react";
 
-export const Card: React.FC = (): JSX.Element => {
+type CardProps = {
+    children: React.ReactNode;
+    className?: string;
+}
+
+export const Card: React.FC<CardProps> = ({children, className}: CardProps): JSX.Element => {
     return (
-        <h1>fgdfg</h1>
+        <div className={`bg-[#f9fafb] rounded-2xl p-5 shadow-sm ${className || ""}`}>
+            {children}
+        </div>
     )
 }
