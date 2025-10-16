@@ -1,6 +1,7 @@
 import React, {JSX} from "react";
 import {Avatar} from "@/ui/avatar";
 import {Input} from "@/ui/input";
+import {IconType} from "react-icons";
 
 type UserInfoProps = {
     avatarSrc: string;
@@ -55,7 +56,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({icon: Icon, onClick}: Action
 }
 
 type HeaderAction = {
-    icon: React.ComponentType<{ className?: string }>;
+    icon: IconType;
     onClick?: () => void;
 }
 
