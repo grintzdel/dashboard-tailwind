@@ -1,8 +1,6 @@
 import React, {JSX} from "react";
 import {Avatar} from "@/ui/avatar";
 import {Input} from "@/ui/input";
-import {FiSettings, FiBell} from "react-icons/fi";
-
 
 type UserInfoProps = {
     avatarSrc: string;
@@ -77,7 +75,7 @@ const HeaderActions: React.FC<HeaderActionsProps> = ({searchPlaceholder, actions
     )
 }
 
-type HeaderProps = {
+export type HeaderProps = {
     user: UserInfoProps;
     searchPlaceholder?: string;
     actions: HeaderAction[];
@@ -92,20 +90,4 @@ export const Header: React.FC<HeaderProps> = ({user, searchPlaceholder, actions}
             </div>
         </header>
     )
-}
-
-export const defaultHeaderConfig: HeaderProps = {
-    user: {
-        avatarSrc: "/random-guy.jpeg",
-        name: "Markus"
-    },
-    searchPlaceholder: "Start searching here...",
-    actions: [
-        {
-            icon: FiSettings
-        },
-        {
-            icon: FiBell
-        }
-    ]
 }
