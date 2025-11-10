@@ -4,13 +4,24 @@ import Image from "next/image";
 type AvatarProps = {
     src: string;
     alt: string;
-    width: number;
-    height: number;
     className?: string
 }
 
-export const Avatar: React.FC<AvatarProps> = ({src, alt, width, height, className = ""}: AvatarProps): JSX.Element => {
+export type AvatarsListProps = {
+    children: React.ReactNode;
+}
+
+export const Avatar: React.FC<AvatarProps> = ({src, alt, className = ""}: AvatarProps): JSX.Element => {
     return (
-        <Image src={src} alt={alt} width={width} height={height} className={`object-cover rounded-full ${className}`}/>
+        <Image src={src} alt={alt} width={10} height={10}
+               className={`object-cover rounded-full border border-white ${className}`}/>
+    )
+}
+
+export const AvatarsList = ({children}: AvatarsListProps): JSX.Element => {
+    return (
+        <div className="flex flex-row -space-x-2">
+            {children}
+        </div>
     )
 }

@@ -18,7 +18,7 @@ const UserInfo: React.FC<UserInfoProps> = ({avatarSrc, name}: UserInfoProps): JS
 
     return (
         <div className="flex flex-row gap-5 items-center">
-            <Avatar src={avatarSrc} alt={`${avatarSrc} Avatar`} width={40} height={40} className="h-13 w-13"/>
+            <Avatar src={avatarSrc} alt={`${avatarSrc} Avatar`} className="h-13 w-13"/>
             <div className="flex flex-col gap-1">
                 <h2 className="text-lg font-semibold text-gray-800">Hey, {name}</h2>
                 <p className="text-sm text-gray-500">{today}</p>

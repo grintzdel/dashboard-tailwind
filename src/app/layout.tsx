@@ -30,8 +30,8 @@ export default function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
         >
-        <SidebarWrapper />
-        <HeaderWrapper />
+        <SidebarWrapper/>
+        <HeaderWrapper/>
         <main className="ml-64 mt-20 p-8">
             {children}
         </main>
