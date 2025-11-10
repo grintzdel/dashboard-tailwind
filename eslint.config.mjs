@@ -20,7 +20,8 @@ const eslintConfig = [
             "next-env.d.ts",
         ],
         rules: {
-            "@typescript-eslint/no-namespace": "off"
+            "@typescript-eslint/no-namespace": "off",
+            "@typescript-eslint/no-explicit-any": "off"
         }
     },
 ];
