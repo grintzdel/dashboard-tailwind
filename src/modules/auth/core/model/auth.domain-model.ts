@@ -13,6 +13,6 @@ export namespace AuthDomainModel {
 
   export type RegisterCredentials = LoginCredentials & {
     name: string
-    role?: Extract<UserDomainModel.Role, 'ROLE_USER' | 'ROLE_ARTIST'>
+    role?: Extract<UserDomainModel.Role, 'ROLE_USER'>
   }
 }
