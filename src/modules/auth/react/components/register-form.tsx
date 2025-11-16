@@ -11,7 +11,6 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isPending,
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isArtist, setIsArtist] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -19,7 +18,6 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isPending,
       name,
       email,
       password,
-      ...(isArtist && { role: 'ROLE_ARTIST' }),
     })
   }
 
@@ -88,20 +86,6 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isPending,
                 className="mt-1 block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-xl focus:border-purple-500 focus:ring-2 focus:ring-purple-500 focus:outline-none"
                 placeholder="••••••••"
               />
-            </div>
-
-            <div className="flex items-center">
-              <input
-                id="isArtist"
-                name="isArtist"
-                type="checkbox"
-                checked={isArtist}
-                onChange={(e) => setIsArtist(e.target.checked)}
-                className="h-4 w-4 rounded border-white/10 bg-white/5 text-purple-600 focus:ring-2 focus:ring-purple-500 focus:ring-offset-0"
-              />
-              <label htmlFor="isArtist" className="ml-2 block text-sm text-white/80">
-                Je suis un artiste
-              </label>
             </div>
           </div>
 
