@@ -1,4 +1,4 @@
-import { UserDomainModel } from '@/modules/user/core/model/user.domain-model'
+import { UserRolesEnum } from '@/modules/user/core/enums/user-roles.enum'
 
 export namespace AuthDomainModel {
   export type TokenResponse = {
@@ -6,13 +6,13 @@ export namespace AuthDomainModel {
     expiresIn: number
   }
 
-  export type LoginCredentials = {
+  export type LoginDto = {
     email: string
     password: string
   }
 
-  export type RegisterCredentials = LoginCredentials & {
+  export type RegisterDto = LoginDto & {
     name: string
-    role?: Extract<UserDomainModel.Role, 'ROLE_USER'>
+    role: UserRolesEnum.USER
   }
 }

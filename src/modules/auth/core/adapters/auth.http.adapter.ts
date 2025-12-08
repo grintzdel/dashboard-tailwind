@@ -1,11 +1,11 @@
-import { IAuthPort } from '../port/auth.port'
-import { AuthDomainModel } from '../model/auth.domain-model'
 import { ApiService } from '@/modules/app/core/service/api.service'
+import { AuthDomainModel } from '../model/auth.domain-model'
+import { IAuthPort } from '../port/auth.port'
 
 export class AuthHttpAdapter implements IAuthPort {
   constructor(private api: ApiService) {}
 
-  async login(credentials: AuthDomainModel.LoginCredentials): Promise<AuthDomainModel.TokenResponse> {
+  async login(credentials: AuthDomainModel.LoginDto): Promise<AuthDomainModel.TokenResponse> {
     try {
       const res = await this.api.post<AuthDomainModel.TokenResponse>('/api/auth/login', credentials)
 
@@ -17,7 +17,7 @@ export class AuthHttpAdapter implements IAuthPort {
     }
   }
 
-  async register(credentials: AuthDomainModel.RegisterCredentials): Promise<AuthDomainModel.TokenResponse> {
+  async register(credentials: AuthDomainModel.RegisterDto): Promise<AuthDomainModel.TokenResponse> {
     try {
       const res = await this.api.post<AuthDomainModel.TokenResponse>('/api/auth/register', credentials)
 

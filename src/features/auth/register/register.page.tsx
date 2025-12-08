@@ -9,7 +9,7 @@ export default function RegisterPage() {
   const router = useRouter()
   const registerMutation = useRegister()
 
-  const handleRegister = async (credentials: AuthDomainModel.RegisterCredentials) => {
+  const handleRegister = async (credentials: AuthDomainModel.RegisterDto) => {
     try {
       await registerMutation.mutateAsync(credentials)
       router.push('/login')

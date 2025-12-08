@@ -1,8 +1,9 @@
 import { AuthDomainModel } from '@/modules/auth/core/model/auth.domain-model'
 import React, { useState } from 'react'
+import { UserRolesEnum } from '@/modules/user/core/enums/user-roles.enum'
 
 type RegisterFormProps = {
-  onSubmit: (credentials: AuthDomainModel.RegisterCredentials) => void
+  onSubmit: (credentials: AuthDomainModel.RegisterDto) => void
   isPending: boolean
   error: Error | null
 }
@@ -18,6 +19,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onSubmit, isPending,
       name,
       email,
       password,
+      role: UserRolesEnum.USER,
     })
   }
 

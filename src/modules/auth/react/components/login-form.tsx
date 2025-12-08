@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { AuthDomainModel } from '@/modules/auth/core/model/auth.domain-model'
 
 type LoginFormProps = {
-  onSubmit: (credentials: AuthDomainModel.LoginCredentials) => void
+  onSubmit: (credentials: AuthDomainModel.LoginDto) => void
   isPending: boolean
   error: Error | null
 }
