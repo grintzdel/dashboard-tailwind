@@ -1,10 +1,11 @@
 import { AppStore, createStore } from '@/modules/app/core/store/store'
 import { AuthHttpAdapter } from '@/modules/auth/core/adapters/auth.http.adapter'
+import { EmployeeHttpAdapter } from '@/modules/employee/core/adapters/employee.http.adapter'
+import { ProjectHttpAdapter } from '@/modules/project/core/adapters/project.http.adapter'
 import { UserHttpAdapter } from '@/modules/user/core/adapters/user.http.adapter'
 import { ApiService } from './service/api.service'
 import { Dependencies } from './store/dependencies'
-import { ProjectHttpAdapter } from '@/modules/project/core/adapters/project.http.adapter'
-import { EmployeeHttpAdapter } from '@/modules/employee/core/adapters/employee.http.adapter'
+import { TaskHttpAdapter } from '@/modules/task/core/adapters/task.http.adapter'
 
 export class App {
   private static instance: App
@@ -24,6 +25,7 @@ export class App {
       userGateway: new UserHttpAdapter(this.api),
       projectGateway: new ProjectHttpAdapter(this.api),
       employeeGateway: new EmployeeHttpAdapter(this.api),
+      taskGateway: new TaskHttpAdapter(this.api),
     }
 
     this.store = createStore({ dependencies: this.dependencies })

@@ -1,26 +1,42 @@
+import { TaskStatusEnum } from '@/modules/task/enums/task-status.enum'
+
 export namespace TaskDomainModel {
-    export enum StatusMetadataKeys {
-        STATUS = "Status",
-        PERCENTAGE = "Percentage",
-        DUE_DATE = "Due Date"
-    }
+  export type TaskOverview = {
+    id: string
+    name: string
+    description: string
+    projectId: string
+    status: TaskStatusEnum
+    assignedTo: string
+    createdAt: Date
+    updatedAt: Date
+    deletedAt: Nullable<Date>
+  }
 
-    type TaskStatus = "on going" | "done" | "todo";
+  export type CreateTaskDto = Pick<TaskOverview, 'name' | 'description' | 'projectId' | 'assignedTo' | 'status'>
 
-    type StatusMetadata = {
-        key: StatusMetadataKeys.STATUS;
-        value: TaskStatus;
-    }
+  export type UpdateTaskDto = Partial<CreateTaskDto>
 
-    type PercentageMetadata = {
-        key: StatusMetadataKeys.PERCENTAGE;
-        value: number;
-    }
+  export enum StatusMetadataKeys {
+    STATUS = 'Status',
+    PERCENTAGE = 'Percentage',
+    DUE_DATE = 'Due Date',
+  }
 
-    type DueDateMetadata = {
-        key: StatusMetadataKeys.DUE_DATE;
-        value: Date | string;
-    }
+  type StatusMetadata = {
+    key: StatusMetadataKeys.STATUS
+    value: TaskStatusEnum
+  }
 
-    export type TaskMetadata = StatusMetadata | PercentageMetadata | DueDateMetadata;
+  type PercentageMetadata = {
+    key: StatusMetadataKeys.PERCENTAGE
+    value: number
+  }
+
+  type DueDateMetadata = {
+    key: StatusMetadataKeys.DUE_DATE
+    value: Date | string
+  }
+
+  export type TaskMetadata = StatusMetadata | PercentageMetadata | DueDateMetadata
 }
