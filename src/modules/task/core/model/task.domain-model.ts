@@ -1,4 +1,4 @@
-import { TaskStatusEnum } from '@/modules/task/enums/task-status.enum'
+import { TaskStatusEnum } from '@/modules/task/core/enums/task-status.enum'
 
 export namespace TaskDomainModel {
   export type TaskOverview = {
