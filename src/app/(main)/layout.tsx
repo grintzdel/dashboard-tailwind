@@ -1,8 +1,10 @@
+import ContextProvider from '@/modules/app/react/contexts/context-provider'
+import { HeaderWrapper } from '@/modules/task/react/navigation/header-wrapper'
+import { SidebarWrapper } from '@/modules/task/react/navigation/sidebar-wrapper'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
 import React from 'react'
-import ContextProvider from '@/modules/app/react/contexts/context-provider'
+import '../globals.css'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,7 +30,9 @@ export default function RootLayout({
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable} bg-gray-50 antialiased`}>
         <ContextProvider>
-          <main className="max-h-dvh">{children}</main>
+          <SidebarWrapper />
+          <HeaderWrapper />
+          <main className="mt-20 ml-64 p-8">{children}</main>
         </ContextProvider>
       </body>
     </html>
