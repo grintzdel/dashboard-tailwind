@@ -1,8 +1,8 @@
-import { IAuthGateway } from '../port/gateway.auth'
+import { IAuthPort } from '../port/auth.port'
 import { AuthDomainModel } from '../model/auth.domain-model'
 import { ApiService } from '@/modules/app/core/service/api.service'
 
-export class HttpAuth implements IAuthGateway {
+export class AuthHttpAdapter implements IAuthPort {
   constructor(private api: ApiService) {}
 
   async login(credentials: AuthDomainModel.LoginCredentials): Promise<AuthDomainModel.TokenResponse> {

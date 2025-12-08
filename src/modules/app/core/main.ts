@@ -1,8 +1,8 @@
+import { AppStore, createStore } from '@/modules/app/core/store/store'
+import { AuthHttpAdapter } from '@/modules/auth/core/adapters/auth.http.adapter'
+import { UserHttpAdapter } from '@/modules/user/core/adapters/user.http.adapter'
 import { ApiService } from './service/api.service'
 import { Dependencies } from './store/dependencies'
-import { AppStore, createStore } from '@/modules/app/core/store/store'
-import { HttpAuth } from '@/modules/auth/core/adapters/http.auth'
-import { HttpUser } from '@/modules/user/core/adapters/http.user'
 
 export class App {
   private static instance: App
@@ -18,8 +18,8 @@ export class App {
     }
 
     this.dependencies = {
-      authGateway: new HttpAuth(this.api),
-      userGateway: new HttpUser(this.api),
+      authGateway: new AuthHttpAdapter(this.api),
+      userGateway: new UserHttpAdapter(this.api),
     }
 
     this.store = createStore({ dependencies: this.dependencies })

@@ -1,8 +1,8 @@
 import { ApiService } from '@/modules/app/core/service/api.service'
 import { UserDomainModel } from '@/modules/user/core/model/user.domain-model'
-import { IUserGateway } from '@/modules/user/core/port/gateway.user'
+import { IUserPort } from '@/modules/user/core/port/user.port'
 
-export class HttpUser implements IUserGateway {
+export class UserHttpAdapter implements IUserPort {
   constructor(private api: ApiService) {}
 
   async getAll(): Promise<UserDomainModel.User[]> {

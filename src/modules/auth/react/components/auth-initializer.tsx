@@ -3,7 +3,7 @@
 import { app } from '@/modules/app/core/main'
 import { useAppDispatch } from '@/modules/app/core/store/store'
 import { setUser } from '@/modules/auth/core/store/auth.slice'
-import { useCurrentUser } from '@/modules/user/react/hooks/queries/use-current-user'
+import { useCurrentUser } from '@/modules/user/react/hooks/queries/query/use-current-user'
 import React, { useEffect } from 'react'
 
 export const AuthInitializer: React.FC<{ children: React.ReactNode }> = ({ children }) => {

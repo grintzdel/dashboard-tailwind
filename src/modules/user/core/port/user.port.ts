@@ -1,6 +1,6 @@
 import { UserDomainModel } from '@/modules/user/core/model/user.domain-model'
 
-export interface IUserGateway {
+export interface IUserPort {
   /*
   Queries
    */
