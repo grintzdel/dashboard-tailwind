@@ -6,6 +6,7 @@ import { UserHttpAdapter } from '@/modules/user/core/adapters/user.http.adapter'
 import { ApiService } from './service/api.service'
 import { Dependencies } from './store/dependencies'
 import { TaskHttpAdapter } from '@/modules/task/core/adapters/task.http.adapter'
+import { AnalyticsHttpAdapter } from '@/modules/analytics/core/adapters/analytics.http.adapter'
 
 export class App {
   private static instance: App
@@ -26,6 +27,7 @@ export class App {
       projectGateway: new ProjectHttpAdapter(this.api),
       employeeGateway: new EmployeeHttpAdapter(this.api),
       taskGateway: new TaskHttpAdapter(this.api),
+      analyticsGateway: new AnalyticsHttpAdapter(this.api),
     }
 
     this.store = createStore({ dependencies: this.dependencies })

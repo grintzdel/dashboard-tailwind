@@ -3,6 +3,7 @@ import { IUserPort } from '@/modules/user/core/port/user.port'
 import { IProjectPort } from '@/modules/project/core/port/project.port'
 import { IEmployeePort } from '@/modules/employee/core/port/employee.port'
 import { ITaskPort } from '@/modules/task/core/port/task.port'
+import { IAnalyticsPort } from '@/modules/analytics/core/port/analytics.port'
 
 export type Dependencies = {
   authGateway: IAuthPort
@@ -10,4 +11,5 @@ export type Dependencies = {
   projectGateway: IProjectPort
   employeeGateway: IEmployeePort
   taskGateway: ITaskPort
+  analyticsGateway: IAnalyticsPort
 }
