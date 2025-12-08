@@ -12,6 +12,10 @@ export function middleware(request: NextRequest) {
   const publicRoutes = ['/login', '/register']
   const isPublicRoute = publicRoutes.some((route) => pathname.startsWith(route))
 
+  if (pathname.startsWith('/logout')) {
+    return NextResponse.next()
+  }
+
   if (pathname === '/') {
     if (isTokenValid) {
       const dashboardUrl = new URL('/dashboard', request.url)
