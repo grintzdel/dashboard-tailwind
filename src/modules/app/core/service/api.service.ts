@@ -56,9 +56,13 @@ export class ApiService {
   public setToken(token: string, expiresIn: number): void {
     this.token = token
     if (typeof window !== 'undefined') {
-      localStorage.setItem('auth_token', token)
       const expirationTime = Date.now() + expiresIn * 1000
+
+      localStorage.setItem('auth_token', token)
       localStorage.setItem('token_expiration', expirationTime.toString())
+
+      document.cookie = `auth_token=${token}; path=/; max-age=${expiresIn}; SameSite=Lax`
+      document.cookie = `token_expiration=${expirationTime}; path=/; max-age=${expiresIn}; SameSite=Lax`
     }
   }
 
@@ -72,6 +76,9 @@ export class ApiService {
       localStorage.removeItem('auth_token')
       localStorage.removeItem('token_expiration')
       localStorage.removeItem('current_user')
+
+      document.cookie = 'auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'
+      document.cookie = 'token_expiration=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'
     }
   }
 

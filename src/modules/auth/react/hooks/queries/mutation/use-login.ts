@@ -8,5 +8,8 @@ export function useLogin(): UseMutationResult<AuthDomainModel.TokenResponse, Err
       const data = await app.dependencies.authGateway.login(credentials)
       return data
     },
+    onSuccess: (response) => {
+      app.api.setToken(response.token, response.expiresIn)
+    },
   })
 }

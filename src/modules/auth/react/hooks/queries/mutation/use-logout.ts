@@ -6,5 +6,10 @@ export function useLogout(): UseMutationResult<void, Error, void> {
     mutationFn: async (): Promise<void> => {
       await app.dependencies.authGateway.logout()
     },
+    onSuccess: () => {
+      if (typeof window !== 'undefined') {
+        window.location.href = '/login'
+      }
+    },
   })
 }

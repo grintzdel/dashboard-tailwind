@@ -12,5 +12,8 @@ export function useRegister(): UseMutationResult<
       const data = await app.dependencies.authGateway.register(credentials)
       return data
     },
+    onSuccess: (response) => {
+      app.api.setToken(response.token, response.expiresIn)
+    },
   })
 }
