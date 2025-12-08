@@ -1,24 +1,31 @@
-"use client";
+'use client'
 
-import {Header, type HeaderProps} from "@/ui/header";
-import {FiBell, FiSettings} from "react-icons/fi";
+import { Header, type HeaderProps } from '@/ui/header'
+import { FiBell, FiSettings } from 'react-icons/fi'
+import { useAuthState } from '@/modules/auth/react/hooks/use-auth-state'
 
 export const HeaderWrapper = () => {
-    return <Header {...defaultHeaderConfig} />;
-};
+  const { user } = useAuthState()
 
-const defaultHeaderConfig: HeaderProps = {
+  const getInitials = (name: string): string => {
+    return name.charAt(0).toUpperCase()
+  }
+
+  const headerConfig: HeaderProps = {
     user: {
-        avatarSrc: "/random-guy.jpeg",
-        name: "Markus"
+      name: user?.name || 'Guest',
+      initials: user?.name ? getInitials(user.name) : 'G',
     },
-    searchPlaceholder: "Start searching here...",
+    searchPlaceholder: 'Start searching here...',
     actions: [
-        {
-            icon: FiSettings
-        },
-        {
-            icon: FiBell
-        }
-    ]
+      {
+        icon: FiSettings,
+      },
+      {
+        icon: FiBell,
+      },
+    ],
+  }
+
+  return <Header {...headerConfig} />
 }
