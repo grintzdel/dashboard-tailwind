@@ -8,6 +8,8 @@ export interface ITaskPort {
 
   getTaskById(id: string): Promise<Nullable<TaskDomainModel.TaskOverview>>
 
+  countTasks(): Promise<number>
+
   /*
   Commands
    */

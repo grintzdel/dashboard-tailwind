@@ -17,6 +17,14 @@ export namespace AnalyticsDomainModel {
     todoProjects: number
   }
 
+  export type TasksCompleted = {
+    totalTasks: number
+    completedTasks: number
+    completionRate: number
+    inProgressTasks: number
+    todoTasks: number
+  }
+
   export type TasksPerEmployee = {
     employeeId: string
     firstName: string

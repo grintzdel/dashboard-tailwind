@@ -56,4 +56,18 @@ export class TaskHttpAdapter implements ITaskPort {
       throw new Error(`Failed to delete task with id ${id}: ${error instanceof Error ? error.message : String(error)}`)
     }
   }
+
+  async countTasks(): Promise<number> {
+    try {
+      const res = await this.api.get<{ count: number } | number>(`/api/tasks/active/count`)
+
+      if (typeof res === 'object' && res !== null && 'count' in res) {
+        return res.count
+      }
+
+      return res as number
+    } catch (error) {
+      throw new Error(`Failed to count tasks: ${error instanceof Error ? error.message : String(error)}`)
+    }
+  }
 }

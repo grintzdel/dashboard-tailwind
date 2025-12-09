@@ -63,4 +63,18 @@ export class ProjectHttpAdapter implements IProjectPort {
       )
     }
   }
+
+  async countProjects(): Promise<number> {
+    try {
+      const res = await this.api.get<{ count: number } | number>(`/api/projects/active/count`)
+
+      if (typeof res === 'object' && res !== null && 'count' in res) {
+        return res.count
+      }
+
+      return res as number
+    } catch (error) {
+      throw new Error(`Failed to count projects: ${error instanceof Error ? error.message : String(error)}`)
+    }
+  }
 }

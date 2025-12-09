@@ -34,6 +34,25 @@ export class AnalyticsHttpAdapter implements IAnalyticsPort {
     }
   }
 
+  async getTasksCompleted(
+    params?: Nullable<AnalyticsDomainModel.PeriodQueryParams>
+  ): Promise<AnalyticsDomainModel.TasksCompleted> {
+    try {
+      const res = await this.api.get<{ data: AnalyticsDomainModel.TasksCompleted } | AnalyticsDomainModel.TasksCompleted>(
+        `/api/analytics/tasks-completed-by-period`,
+        { params }
+      )
+
+      if (typeof res === 'object' && res !== null && 'data' in res) {
+        return res.data
+      }
+
+      return res as AnalyticsDomainModel.TasksCompleted
+    } catch (error) {
+      throw new Error(`Failed to get tasks completed: ${error instanceof Error ? error.message : String(error)}`)
+    }
+  }
+
   async listTasksPerEmployee(): Promise<AnalyticsDomainModel.TasksPerEmployee[]> {
     try {
       const res = await this.api.get<AnalyticsDomainModel.TasksPerEmployee[]>(`/api/analytics/tasks-per-employee`)

@@ -11,5 +11,7 @@ export interface IAnalyticsPort {
 
   getProjectsCompleted(params?: AnalyticsDomainModel.PeriodQueryParams): Promise<AnalyticsDomainModel.ProjectsCompleted>
 
+  getTasksCompleted(params?: AnalyticsDomainModel.PeriodQueryParams): Promise<AnalyticsDomainModel.TasksCompleted>
+
   listTasksPerEmployee(): Promise<AnalyticsDomainModel.TasksPerEmployee[]>
 }

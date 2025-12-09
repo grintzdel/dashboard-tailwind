@@ -19,4 +19,6 @@ export interface IProjectPort {
   getProjectById(id: string): Promise<Nullable<ProjectDomainModel.ProjectOverview>>
 
   listProjects(): Promise<ProjectDomainModel.ProjectOverview[]>
+
+  countProjects(): Promise<number>
 }
