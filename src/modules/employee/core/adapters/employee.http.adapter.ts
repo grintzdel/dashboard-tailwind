@@ -5,6 +5,20 @@ import { EmployeeDomainModel } from '@/modules/employee/core/model/employee.doma
 export class EmployeeHttpAdapter implements IEmployeePort {
   constructor(private api: ApiService) {}
 
+  async countActiveEmployees(): Promise<number> {
+    try {
+      const res = await this.api.get<{ count: number } | number>(`/api/employees/active/count`)
+
+      if (typeof res === 'object' && res !== null && 'count' in res) {
+        return res.count
+      }
+
+      return res as number
+    } catch (error) {
+      throw new Error(`Failed to count active employees: ${error instanceof Error ? error.message : String(error)}`)
+    }
+  }
+
   async listEmployees(): Promise<EmployeeDomainModel.EmployeeOverview[]> {
     try {
       const res = await this.api.get<EmployeeDomainModel.EmployeeOverview[]>(`/api/employees`)
