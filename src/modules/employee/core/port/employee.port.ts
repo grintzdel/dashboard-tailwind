@@ -8,6 +8,8 @@ export interface IEmployeePort {
 
   getEmployeeById(id: string): Promise<Nullable<EmployeeDomainModel.EmployeeOverview>>
 
+  countActiveEmployees(): Promise<number>
+
   /*
   Commands
    */
